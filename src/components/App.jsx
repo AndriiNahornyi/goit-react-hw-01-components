@@ -1,17 +1,21 @@
-import { Profile } from './Profile/Profile';
-
-// import user from 'JSON/';
+// import { Profile } from './Profile/Profile';
+import { Profile } from './Profile';
+import { Statistics } from './Statistics';
+import user from 'JSON/user.json';
+import data from 'JSON/data.json';
 
 export const App = () => {
+  // console.log('user', user);
   return (
-    <div>
+    <>
       <Profile
-      // username={user.username}
-      // tag={user.tag}
-      // location={user.location}
-      // avatar={user.avatar}
-      // stats={user.stats}
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
       />
-    </div>
+      <Statistics title="Upload stats" stats={data} />
+    </>
   );
 };
