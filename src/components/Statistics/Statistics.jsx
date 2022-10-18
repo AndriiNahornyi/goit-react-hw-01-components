@@ -9,7 +9,7 @@ import {
 } from './Statistics.styled';
 
 export const Statistics = ({ title, stats }) => {
-  console.log('stats', stats);
+  //   console.log('stats', stats);
   return (
     <Section>
       {title && <Title>{title}</Title>}
