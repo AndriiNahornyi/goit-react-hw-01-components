@@ -1,82 +1,56 @@
-export const Profile = () => {
-  return (
-    <div class="profile">
-      <div class="description">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-          alt="User avatar"
-          class="avatar"
-        />
-        <p class="name">Petra Marica</p>
-        <p class="tag">@pmarica</p>
-        <p class="location">Salvador, Brasil</p>
-      </div>
+import PropTypes from 'prop-types';
+import {
+  ProfileCard,
+  Description,
+  UserAvatar,
+  Name,
+  Tag,
+  Location,
+  Stats,
+  Section,
+  Label,
+  Quantity,
+} from '../Profile/Profile.styled';
 
-      <ul class="stats">
-        <li>
-          <span class="label">Followers</span>
-          <span class="quantity">1000</span>
-        </li>
-        <li>
-          <span class="label">Views</span>
-          <span class="quantity">2000</span>
-        </li>
-        <li>
-          <span class="label">Likes</span>
-          <span class="quantity">3000</span>
-        </li>
-      </ul>
-    </div>
+export const Profile = ({ username, avatar, tag, location, stats }) => {
+  return (
+    <ProfileCard>
+      <Description>
+        <UserAvatar
+          className="avatar"
+          src={avatar}
+          width="100px"
+          alt="User avatar"
+        />
+        <Name className="name">{username}</Name>
+        <Tag className="tag">@{tag}</Tag>
+        <Location className="location">{location}</Location>
+      </Description>
+      <Stats className="stats">
+        <Section>
+          <Label className="label">Followers</Label>
+          <Quantity>{stats.followers}</Quantity>
+        </Section>
+        <Section>
+          <Label className="label">Views</Label>
+          <Quantity>{stats.views}</Quantity>
+        </Section>
+        <Section>
+          <Label className="label">Likes</Label>
+          <Quantity>{stats.likes}</Quantity>
+        </Section>
+      </Stats>
+    </ProfileCard>
   );
 };
-// import PropTypes from 'prop-types';
-// import {
-//   ProfileCard,
-//   Description,
-//   UserAvatar,
-//   Name,
-//   Tag,
-//   Location,
-//   Stats,
-//   Block,
-//   Label,
-//   Quantity,
-// } from './Profile.styled';
 
-// export const Profile = ({ username, avatar, tag, location, stats }) => {
-//   return (
-//     <ProfileCard>
-//       <Description>
-//         <UserAvatar>src={avatar} alt="User avatar"</UserAvatar>
-//         <Name>{username}</Name>
-//         <Tag>@{tag}</Tag>
-//         <Location>{location}</Location>
-//       </Description>
-//       <Stats>
-//         <Block>
-//           <Label>Followers</Label>
-//           <Quantity>{stats.followers}</Quantity>
-//         </Block>
-//         <Block>
-//           <Label>Views</Label>
-//           <Quantity>{stats.views}</Quantity>
-//         </Block>
-//         <Block>
-//           <Label>Likes</Label>
-//           <Quantity>{stats.likes}</Quantity>
-//         </Block>
-//       </Stats>
-//     </ProfileCard>
-//   );
-// };
-
-// Profile.propTypes = {
-//   username: PropTypes.string.isRequired,
-//   tag: PropTypes.string.isRequired,
-//   location: PropTypes.string.isRequired,
-//   stats: PropTypes.shape({
-//     followers: PropTypes.number.isRequired,
-//     views: PropTypes.number.isRequired,
-//     likes: PropTypes.number.isRequired,
-//   }),
-// };
+Profile.propTypes = {
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
+};
