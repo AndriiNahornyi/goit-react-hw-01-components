@@ -16,27 +16,22 @@ export const Profile = ({ username, avatar, tag, location, stats }) => {
   return (
     <ProfileCard>
       <Description>
-        <UserAvatar
-          className="avatar"
-          src={avatar}
-          width="100px"
-          alt="User avatar"
-        />
-        <Name className="name">{username}</Name>
-        <Tag className="tag">@{tag}</Tag>
-        <Location className="location">{location}</Location>
+        <UserAvatar src={avatar} width="100px" alt="User avatar" />
+        <Name>{username}</Name>
+        <Tag>@{tag}</Tag>
+        <Location>{location}</Location>
       </Description>
-      <Stats className="stats">
+      <Stats>
         <Section>
-          <Label className="label">Followers</Label>
+          <Label>Followers</Label>
           <Quantity>{stats.followers}</Quantity>
         </Section>
         <Section>
-          <Label className="label">Views</Label>
+          <Label>Views</Label>
           <Quantity>{stats.views}</Quantity>
         </Section>
         <Section>
-          <Label className="label">Likes</Label>
+          <Label>Likes</Label>
           <Quantity>{stats.likes}</Quantity>
         </Section>
       </Stats>
